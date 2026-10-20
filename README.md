@@ -1,33 +1,43 @@
-# Care Journal
+# Temmie
 
-A mobile-first React, TypeScript, and Vite prototype based on the CDE5311 Figma design. Includes Home, Prepare, Summary, and a three-step entry form. Entries are saved locally in the browser. Today is centered in the date picker; the next three days are visible but disabled.
+A local React, TypeScript, and Vite prototype of the CDE5311 Figma **Page 1** design.
 
 ## Setup and run
 
-Install Node.js 22.12+ and pnpm, then run:
+Install Node.js 22.12+ and pnpm:
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open the local address printed by Vite (usually http://127.0.0.1:5173).
+Open http://127.0.0.1:5173/. Use **Explore screens** to review individual frames, or **Welcome flow** to try onboarding.
 
 ```sh
-pnpm build    # Type-check and create the production build
-pnpm preview  # Serve the production build locally
+pnpm build
+pnpm preview
 ```
+
+## Included flows
+
+- Onboarding, preferences, medicines, and animated Temmie illustrations.
+- Home with previous dates and three disabled future dates.
+- Body, sleep, food, and movement records; original-entry details and editing.
+- Month, three-month, and year Pattern examples, source-record access, and editable consultation summaries.
+- Visit notes, example doctor selection, Profile, privacy preferences, and data export/deletion.
+
+Records and preferences stay in this browser. Existing `care-entries` records are migrated without deleting the original storage. Design examples are labeled separately from personal records. AI, health-account connections, device security, notifications, and appointment booking are simulations; no external service is contacted.
+
+Figma assets and fonts are bundled locally. The visual reference is Page 1 only; Page 2 is unchanged. No deployment is required to use this prototype.
 
 ## Browser checks
 
-With Google Chrome installed and the dev server running:
+With Google Chrome installed and the development server running:
 
 ```sh
-node checks/verify.mjs
+node checks/page1-flow.mjs
+node checks/page1-extra.mjs
+node checks/page1-review.mjs
 ```
 
-Checks cover the six screens, asset loading, entry creation and persistence, and responsive widths. Generated screenshots are ignored by Git.
-
-## Prototype scope
-
-Fonts and SVG assets are bundled locally. Appointment and assistant interactions are demos; no backend or API keys are required. The Profile screen was not supplied, so it displays an explanatory dialog. Some Figma placeholder text is retained. Browser entries are not committed to Git.
+Checks cover onboarding, creating/editing records, local persistence, visit notes, settings, medicine forms, editable summaries, calendar limits, image loading, and responsive layouts. Screenshots and diagnostic logs are ignored by Git.
