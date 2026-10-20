@@ -8,4 +8,7 @@
 .summary-text-layout{position:relative;min-height:1em}.summary-text-measure{white-space:pre-wrap;overflow-wrap:break-word;pointer-events:none;visibility:hidden}
 .summary-demo-banner{position:static}
 
-.figma-daily.food input:focus{outline:none}
+.figma-daily.food input:focus,.figma-daily.movement input:focus{outline:none}
+
+.figma-daily.food input{font-size:14px;padding:0 18px;min-height:41px;border-radius:24px;caret-color:#2f3030}
+.figma-daily.food .figma-save p{font-weight:500}
