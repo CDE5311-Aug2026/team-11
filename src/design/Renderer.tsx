@@ -17,9 +17,9 @@ export function Design({id,override,part,layout=true}:{id:string;override?:Overr
  const onboard=!nav;
  if(onboard)return <div className="design onboarding" style={{minHeight:screen.height}}>{children.map((n,i)=>render(n,'r.'+i))}</div>;
  const body=children.filter(n=>n!==nav&&n.tag!=='status-bar');
- return <div className="design screen-flow" style={{minHeight:screen.height}}><Status/>{body.map((n,i)=>{
+ return <div className="design screen-flow" style={{minHeight:screen.height}}><Status/><div className="screen-content" key={id}>{body.map((n,i)=>{
   const isHome=id==='278:4272';let margin= i===0?Math.max(0,parseFloat(String(n.props.style.top||'74'))-62):0;
   if(isHome)margin=i===0?12:i===1?15:12;
   return <div key={i} className="design-section" style={{marginTop:margin,width:'100%'}}>{render({...n,props:{...n.props,style:{...n.props.style,...(nameOf(n)==='Summary content'?{width:'357px'}:{}),position:'relative',top:undefined,left:undefined,right:undefined,bottom:undefined,transform:undefined,marginLeft:isHome&&i===1?0:'auto',marginRight:'auto'}}},'r.'+i)}</div>
- })}<div className="navigation-slot">{nav&&render({...nav,props:{...nav.props,style:{...nav.props.style,position:'relative',top:undefined,bottom:undefined,left:0,transform:undefined}}},'nav')}</div></div>
+ })}</div><div className="navigation-slot">{nav&&render({...nav,props:{...nav.props,style:{...nav.props.style,position:'relative',top:undefined,bottom:undefined,left:0,transform:undefined}}},'nav')}</div></div>
 }
