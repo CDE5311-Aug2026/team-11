@@ -7,3 +7,5 @@
 .spotting-pad{position:relative;width:260px;height:96px;flex-shrink:0}.spotting-pad img{position:absolute;left:-20px;top:-12px;display:block}.entry-flow-visual{margin:20px 0;border:1px solid #d8ccdc;background:white;border-radius:8px;padding:21px 15px;display:flex;flex-direction:column;gap:16px;width:100%;overflow:hidden}.entry-flow-visual h3{color:#3e1d4b;font-size:16px;font-weight:600;line-height:normal}.entry-flow-visual p{line-height:normal}
 .summary-text-layout{position:relative;min-height:1em}.summary-text-measure{white-space:pre-wrap;overflow-wrap:break-word;pointer-events:none;visibility:hidden}
 .summary-demo-banner{position:static}
+
+.figma-daily.food input:focus{outline:none}
