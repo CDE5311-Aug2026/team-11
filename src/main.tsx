@@ -4,6 +4,7 @@ import '@fontsource/inter/400.css';import '@fontsource/inter/500.css';import '@f
 import {Design,Status,designs,find,nameOf,words,type DesignNode,type Override} from './design/Renderer';
 import {load,key,iso,blankProfile,screens,onboarding,examples,exampleMedicines,type Entry,type Kind,type Medicine} from './model';
 import {DailyLog} from './DailyLog';
+import {Check} from './Check';
 import './style.css';import './design/motion.css';
 const purple='#5b2a6e';
 const optionGroups:Record<string,{group:string;multi?:boolean}>={};
@@ -24,7 +25,6 @@ const timeLabel=(time:string)=>new Date('2026-01-01T'+time).toLocaleTimeString('
 const flowLabel=(n=1)=>n<4?'Light':n<7?'Medium':'Heavy';
 function summaryParagraphs(node:DesignNode):string{const paragraphs:string[]=[];function visit(n:DesignNode|string){if(typeof n==='string')return;if(n.tag==='p'){paragraphs.push(words(n).replace(/\u200b/g,''));return}n.children.forEach(visit)}visit(node);return paragraphs.length?paragraphs.join('\n'):words(node)}
 function SummaryEditor({node,value,onChange}:{node:DesignNode;value:string;onChange:(value:string)=>void}){const textNode=node.children.find(c=>typeof c!=='string') as DesignNode;const typography={...textNode?.props.style,lineHeight:'normal',width:'100%'};return <div style={node.props.style}><div className="summary-text-layout" style={typography}><div aria-hidden="true" className="summary-text-measure">{value+'\u200b'}</div><textarea className="summary-editor" aria-label="Consultation summary" value={value} onChange={e=>onChange(e.target.value)} style={{...typography,position:'absolute',inset:0,height:'100%',margin:0,padding:0,border:0,resize:'none',overflow:'hidden',background:'transparent',textAlign:'left'}}/></div></div>}
-function Check({on}:{on:boolean}){return <span className={'check '+(on?'checked':'')} aria-hidden="true">{on?'✓':''}</span>}
 function App(){
  const [saved,setSaved]=useState(load);const {profile,entries,visits,summaries}=saved;
  const start=new URLSearchParams(location.search).get('screen');
@@ -96,7 +96,7 @@ function App(){
    if(/^STEP [123]$/.test(text)&&n.tag==='div'&&style.borderRadius)return clickNode(n,path,r,()=>go(['bleeding','symptoms','details'][Number(text.slice(-1))-1]));
    if(name==='Button'&&!text)return clickNode(n,path,r,()=>screen==='bleeding'?go('home'):go(screen==='details'?'symptoms':'bleeding'),{'aria-label':'Go back',style:{minHeight:44,minWidth:28}});
    if(screen==='bleeding'&&text.startsWith('Your Sanitary size'))return <Sanitary key={path} draft={draft} setDraft={setDraft}/>;
-   if(screen==='bleeding'&&text.startsWith('Your flow')&&n.tag==='div'&&style.backgroundColor==='#fff')return <Flow key={path} value={draft.flow||0} spotting={!!draft.spotting} change={flow=>setDraft(d=>({...d,flow,spotting:flow<4&&d.spotting}))} toggle={()=>setDraft(d=>({...d,spotting:!d.spotting,flow:d.spotting?d.flow:1}))}/>;
+   if(screen==='bleeding'&&text.startsWith('Your flow')&&n.tag==='div'&&style.backgroundColor==='#fff')return <Flow key={path} value={draft.flow||0} spotting={!!draft.spotting} change={flow=>setDraft(d=>({...d,flow,spotting:flow<4&&d.spotting}))} toggle={()=>setDraft(d=>({...d,spotting:!d.spotting,flow:d.spotting?d.flow:0}))}/>;
    if(name==='Smart Button'&&text==='Continue to Symptoms')return clickNode(n,path,r,()=>go('symptoms'));
    if(name==='Smart Button'&&text==='Continue to Details')return clickNode(n,path,r,()=>go('details'));
    if(screen==='symptoms'&&(name.includes('Log / Symptom severity /')||(!name&&text.includes('Severity ·')&&n.props.id?.startsWith('node-222')))){const symptom=text.split(' Severity')[0].replace('Fatigure','Fatigue').trim();return <Severity key={path} name={symptom} value={draft.symptoms?.[symptom]||0} onChange={v=>setDraft(d=>({...d,symptoms:{...d.symptoms,[symptom]:v}}))}/>}
