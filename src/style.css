@@ -27,3 +27,10 @@
 .screen-flow>.navigation-slot{flex-shrink:0;margin-top:0;padding-top:0;position:relative;z-index:2}
 .app>.demo-banner{position:relative;flex-shrink:0}
 .screen-flow>.my-patterns{min-height:0;overflow-y:auto}
+
+.summary-edit-surface{border-radius:16px}.summary-edit-surface:focus-within{outline:2px solid #93729f;outline-offset:3px}.summary-edit-surface textarea:focus{outline:none}
+.visit-note-editor{width:357px;margin:0 auto;padding-bottom:18px;display:flex;flex-direction:column;gap:16px}.visit-note-editor h1{color:var(--purple);font-weight:700}.visit-note-editor>p{line-height:1.4}.visit-note-editor>small{color:var(--purple)}.saved-visit-editor{font-size:14px;line-height:1.4;border-radius:16px;padding:18px;min-height:300px}.saved-note-preview{white-space:pre-wrap;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+[data-name="Consultation summary • Editable draft"]{overflow:visible!important}
+.visit-note-editor>p{font-family:Inter,sans-serif;font-size:14px;font-weight:400;line-height:normal;color:#434545}
+.visit-note-editor>small{font-family:Inter,sans-serif;font-size:12px;font-weight:500;line-height:normal;color:#5b2a6e}
