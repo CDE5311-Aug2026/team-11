@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="moon">
+<path id="Vector" d="M1.69167 10.35C1.99167 14.6417 5.63333 18.1333 9.99167 18.325C13.0667 18.4583 15.8167 17.025 17.4667 14.7667C18.15 13.8417 17.7833 13.225 16.6417 13.4333C16.0833 13.5333 15.5083 13.575 14.9083 13.55C10.8333 13.3833 7.5 9.975 7.48333 5.95C7.475 4.86667 7.7 3.84167 8.10833 2.90833C8.55833 1.875 8.01667 1.38333 6.975 1.825C3.675 3.21667 1.41667 6.54167 1.69167 10.35Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path id="Vector_2" opacity="0" d="M19.5 19.5L0.5 19.5L0.5 0.5L19.5 0.5L19.5 19.5Z" stroke="white"/>
+</g>
+</svg>

@@ -36,3 +36,7 @@
 .visit-note-editor>small{font-family:Inter,sans-serif;font-size:12px;font-weight:500;line-height:normal;color:#5b2a6e}
 
 .flow-text-only{color:var(--purple);font-size:14px;font-weight:500;margin:0}
+/* Updated Figma screens, October 26. */
+.other-symptom{width:100%;border:1px solid var(--border);border-radius:8px;padding:10px;margin-top:8px;background:white;font-size:12px}.reminder-item{border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:12px}.reminder-item>div{display:flex;gap:14px;flex-wrap:wrap;color:var(--purple);font-size:12px}.modal:has(.visit-reminders){padding:0}.modal:has(.visit-reminders)>.modal-close{display:none}.visit-reminders p{margin:0}.activity-timer{text-align:center;font-size:36px!important;color:var(--purple);padding:20px}.photo-preview{width:100%;border-radius:12px;max-height:160px;object-fit:cover}.photo-review{display:flex;flex-direction:column;gap:8px;font-size:12px}.photo-review button{color:var(--purple)}
+.other-symptom{font-weight:400}.onboarding [data-name="Something else"]>.choice-option{width:100%;padding:12px 10px;border:1px solid var(--border);border-radius:8px;background:white;font-size:14px;font-weight:400;min-height:54px}.onboarding .choice-option{font-weight:400}
+.other-symptom-choice{width:100%;padding:12px 10px;border:1px solid var(--border);border-radius:8px;background:white;font-size:14px;font-weight:400;min-height:54px}
